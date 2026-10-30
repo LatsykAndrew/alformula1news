@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>AL Formula 1 News</title>
+<style>
+:root{--blue:#0130BD;--bg:#111;--card:#1a1a1c;--tx:#f2f2f5;--mut:#9a9aa8;--ln:#2e2e34;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;color:var(--tx);font:15px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;background-color:#131313;
+background-image:linear-gradient(27deg,#151515 5px,transparent 5px),linear-gradient(207deg,#151515 5px,transparent 5px),linear-gradient(27deg,#222 5px,transparent 5px),linear-gradient(207deg,#222 5px,transparent 5px),linear-gradient(90deg,#1b1b1b 10px,transparent 10px),linear-gradient(#1d1d1d 25%,#1a1a1a 25%,#1a1a1a 50%,transparent 50%,transparent 75%,#242424 75%,#242424);
+background-size:20px 20px;background-position:0 5px,10px 0,0 10px,10px 5px,0 0,0 0}
+header{background:#0a0a0a;border-bottom:3px solid var(--blue);display:flex;align-items:center;gap:12px;padding:10px 14px}
+.bg{background:none;border:0;padding:6px;cursor:pointer;color:#fff;width:auto;margin:0}
+.bg i{display:block;width:24px;height:3px;background:#fff;margin:5px 0;border-radius:2px}
+.logo{height:30px;width:auto;fill:#fff}
+.brand{font-weight:800;letter-spacing:1px;font-size:17px;color:#fff;text-decoration:none}
+.strip{display:flex;justify-content:space-between;align-items:center;background:var(--blue);color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 14px}
+#dr{position:fixed;inset:0;z-index:20;visibility:hidden;transition:visibility .35s}#dr.o{visibility:visible}#dr .sh{opacity:0;transition:opacity .35s}#dr.o .sh{opacity:1}#dr nav{transform:translateX(-100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}#dr.o nav{transform:none}
+#dr .sh{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+#dr nav{position:absolute;top:0;bottom:0;left:0;width:260px;max-width:80%;background:#0a0a0a;border-right:3px solid var(--blue);padding:calc(16px + env(safe-area-inset-top,0px)) 0 16px}
+#dr nav a{display:block;padding:14px 20px;color:#fff;text-decoration:none;font-weight:700;border-bottom:1px solid var(--ln)}
+#dr nav a.a{color:#fff;background:var(--blue)}
+main{max-width:980px;margin:0 auto;padding:14px;display:grid;gap:14px}
+.card{background:rgba(20,20,22,.94);border:1px solid var(--ln);border-top:3px solid var(--blue);border-radius:10px;padding:14px}
+h1{margin:0;font-size:20px;text-transform:uppercase;letter-spacing:1px}
+h2{margin:0 0 10px;font-size:15px;text-transform:uppercase;letter-spacing:.8px}
+.ev{color:var(--mut);font-size:13px}.nm{font-size:18px;font-weight:700;margin:2px 0 10px}
+.tm{display:flex;gap:8px}.tm div{flex:1;background:#0c0c0e;border:1px solid var(--ln);border-radius:8px;text-align:center;padding:8px 2px}
+.tm b{display:block;font-size:26px;font-variant-numeric:tabular-nums}.tm small{color:var(--mut);font-size:11px}
+.post{border-top:1px solid var(--ln);padding:12px 0}.post:first-of-type{border-top:0}
+.post h3{margin:0 0 4px;font-size:16px}.post p{margin:0;white-space:pre-wrap}.post time{color:var(--mut);font-size:12px}.post button{float:right}
+input,textarea,button{font:inherit;color:var(--tx);background:#0c0c0e;border:1px solid var(--ln);border-radius:8px;padding:8px;width:100%;margin-bottom:8px}
+button{width:auto;cursor:pointer}button.pri{background:var(--blue);border:0;color:#fff;padding:8px 16px}
+.sc{overflow-x:auto}table{width:100%;border-collapse:collapse}
+td,th{padding:8px 6px;border-top:1px solid var(--ln);text-align:left;white-space:nowrap}th{color:var(--mut);font-size:12px;border:0}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.nx td{font-weight:700;color:#6f90ff}tr.pd{opacity:.45}
+.note{color:var(--mut);font-size:12px;margin-top:8px}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:18px 14px 26px}footer b{color:#fff;letter-spacing:1px}
+html{scroll-behavior:smooth}.pg{display:none}.pg.on{display:contents}.pg.on>*{animation:in .45s cubic-bezier(.2,.8,.2,1) both}.pg.on>*:nth-child(2){animation-delay:.07s}.pg.on>*:nth-child(3){animation-delay:.14s}@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.pg.on>*{animation:none}html{scroll-behavior:auto}#dr nav,#dr .sh{transition:none}}
+a.post{display:block;color:inherit;text-decoration:none;transition:background .25s,padding .25s}a.post:hover{background:rgba(1,48,189,.18);padding-left:10px}a.post h3{font-size:17px}#art h1{margin:0 0 4px;font-size:24px;line-height:1.25;text-transform:none}#art time{display:block;margin-bottom:12px;color:var(--mut);font-size:12px}#art p{margin:0 0 14px;white-space:pre-wrap}.cmt{border-top:1px solid var(--ln);padding:10px 0}.cmt p{margin:2px 0;white-space:pre-wrap}.cmt time{color:var(--mut);font-size:12px}.back{color:#6f90ff;text-decoration:none;font-weight:700}
+.sec{margin:4px 0 0;font-size:15px;text-transform:uppercase;letter-spacing:.8px}
+.gr{display:grid;gap:14px}@media(min-width:700px){.gr{grid-template-columns:repeat(2,1fr)}.gr a.post:first-child{grid-column:1/-1}}
+a.post{background:rgba(20,20,22,.94);border:1px solid var(--ln);border-top:3px solid var(--blue);border-radius:10px;overflow:hidden;padding:0;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+a.post:hover{background:rgba(20,20,22,.94);padding:0;transform:translateY(-4px);box-shadow:0 10px 24px rgba(1,48,189,.35)}
+a.post:first-of-type{border-top:3px solid var(--blue)}
+.pi{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:linear-gradient(135deg,#0130BD,#0a0a0a)}
+.gr a.post:first-child .pi{aspect-ratio:21/9}.pb2{padding:12px 14px}.pb2 h3{margin:0 0 4px}.pb2 p{margin:0 0 6px;color:#cfcfd8}
+.hero{width:100%;max-height:420px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block}
+::view-transition-old(root){animation:fo .25s ease both}::view-transition-new(root){animation:fi .4s ease both}
+@keyframes fo{to{opacity:0}}@keyframes fi{from{opacity:0}}
+</style>
+</head>
+<body>
+<header>
+ <button class="bg" id="bt" aria-label="Меню"><i></i><i></i><i></i></button>
+ <svg class="logo" viewBox="200 640 1545 640" aria-hidden="true"><polygon points="805,663 1013,663 427,1258 220,1258"/><polygon points="1095,663 1192,663 1192,1139 1725,1139 1615,1258 1027,1258 1027,733"/></svg>
+ <a class="brand" href="#news">AL FORMULA 1 NEWS</a>
+</header>
+<a class="strip" href="#schedule"><span>Racing Schedule</span><span>›</span></a>
+<div id="dr"><div class="sh" id="sh"></div><nav id="nv">
+ <a href="#news" data-p="news">Головна</a><a href="#schedule" data-p="schedule">Racing Schedule</a>
+ <a href="#drivers" data-p="drivers">Driver Standings</a><a href="#constructors" data-p="constructors">Constructor Standings</a><a href="#admin" data-p="admin" id="na" style="display:none">Додати пост</a>
+</nav></div>
+<main>
+ <div class="pg" id="p-news">
+  <section class="card"><div class="ev" id="e1"></div><div class="nm" id="n1"></div><div class="tm c"><div><b>0</b><small>днів</small></div><div><b>0</b><small>годин</small></div><div><b>0</b><small>хвилин</small></div><div><b>0</b><small>секунд</small></div></div></section>
+  <h2 class="sec">Останні новини</h2>
+  <div id="feed" class="gr"><div class="note">Завантаження…</div></div>
+ </div>
+ <div class="pg" id="p-schedule">
+  <section class="card"><h1>Racing Schedule</h1><div class="ev" style="margin-top:6px">Наступна сесія</div><div class="nm" id="n2"></div><div class="tm c"><div><b>0</b><small>днів</small></div><div><b>0</b><small>годин</small></div><div><b>0</b><small>хвилин</small></div><div><b>0</b><small>секунд</small></div></div></section>
+  <section class="card"><h2 id="wk">Поточний вікенд</h2><div class="sc"><table id="cur"></table></div><div class="note">Час показано у твоєму часовому поясі. Дані оновлюються автоматично.</div></section>
+  <section class="card"><h2>Наступні етапи</h2><div class="sc"><table id="up"></table></div></section>
+ </div>
+ <div class="pg" id="p-admin"><section class="card"><h1>Додати пост</h1><div id="lg"><input id="pw" type="password" placeholder="Пароль адміністратора"><button class="pri" id="lb">Увійти</button><div class="note" id="lm"></div></div><div id="adm" hidden style="margin-top:10px"><input id="pt" placeholder="Заголовок"><textarea id="px" rows="12" placeholder="Довгий текст (абзаци розділяй порожнім рядком)"></textarea><label class="note">Картинка (необов'язково)</label><input id="pf" type="file" accept="image/*"><button class="pri" id="pb">Опублікувати</button><div class="note" id="pm"></div></div></section></div>
+ <div class="pg" id="p-post"><section class="card" id="art"></section><section class="card" id="cm" hidden><h2>Коментарі</h2><div id="cl"></div><div id="cf"><input id="cnm" maxlength="40" placeholder="Твоє ім'я"><input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"><textarea id="ct2" rows="3" maxlength="1000" placeholder="Твоя думка…"></textarea><button class="pri" id="cb">Надіслати</button><div class="note" id="cm2"></div></div></section><a class="back" href="#news">‹ До всіх новин</a></div>
+ <div class="pg" id="p-drivers"><section class="card"><h1>Driver Standings</h1><div class="sc"><table id="dt"></table></div><div class="note">Дані оновлюються автоматично.</div></section></div>
+ <div class="pg" id="p-constructors"><section class="card"><h1>Constructor Standings</h1><div class="sc"><table id="ct"></table></div><div class="note">Дані оновлюються автоматично.</div></section></div>
+</main>
+<footer><b>AL FORMULA 1 NEWS</b><br>AL = Andrew Latsyk Racing</footer>
+<script>
+var $=function(i){return document.getElementById(i)};
+var fmt=new Intl.DateTimeFormat("uk-UA",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+var dfmt=new Intl.DateTimeFormat("uk-UA",{day:"numeric",month:"long"});
+var ROUNDS=[],POSTS=[],PW="",IS=false,CUR=null;
+try{PW=localStorage.getItem("alpw")||""}catch(e){}
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function api(p,o){o=o||{};o.headers=o.headers||{};if(PW)o.headers["x-admin"]=PW;return fetch("/api"+p,o).then(function(r){if(!r.ok)throw r;return r.json()})}
+function nextS(){var now=Date.now();for(var i=0;i<ROUNDS.length;i++)for(var j=0;j<ROUNDS[i].s.length;j++){var t=Date.parse(ROUNDS[i].s[j][1]);if(t>now)return{i:i,r:ROUNDS[i].n,s:ROUNDS[i].s[j][0],t:t}}return null}
+function tick(){var x=nextS(),l=x?Math.max(0,x.t-Date.now())/1000|0:0,v=[l/86400|0,l%86400/3600|0,l%3600/60|0,l%60],txt=!ROUNDS.length?"Завантаження…":(x?x.r+" — "+x.s:"Сезон завершено");
+$("n1").textContent=txt;$("e1").textContent=x?"Наступна сесія":"";$("n2").textContent=txt;
+document.querySelectorAll(".c").forEach(function(c){var b=c.querySelectorAll("b");for(var k=0;k<4;k++)b[k].textContent=v[k]})}
+function sched(){var x=nextS(),h="",u="";
+if(!x){$("wk").textContent="Сезон завершено";$("cur").innerHTML="";$("up").innerHTML="";return}
+var r=ROUNDS[x.i];$("wk").textContent=r.n;
+r.s.forEach(function(s){var t=Date.parse(s[1]),c=t<Date.now()?"pd":(t===x.t?"nx":"");h+='<tr class="'+c+'"><td>'+s[0]+'</td><td class="n">'+fmt.format(t)+"</td></tr>"});$("cur").innerHTML=h;
+ROUNDS.slice(x.i+1).forEach(function(q){var l=q.s[q.s.length-1];u+="<tr><td>"+q.n+'</td><td class="n">'+dfmt.format(Date.parse(l[1]))+"</td></tr>"});$("up").innerHTML=u||'<tr><td>Це останній етап сезону</td></tr>'}
+function table(id,head,rows){var h="<tr>"+head.map(function(x){return"<th>"+x+"</th>"}).join("")+"</tr>";rows.forEach(function(r,i){h+="<tr><td>"+(i+1)+"</td>"+r.map(function(c){return'<td class="'+(typeof c==="number"?"n":"")+'">'+c+"</td>"}).join("")+"</tr>"});$(id).innerHTML=h}
+var PG=["news","schedule","drivers","constructors","admin"];
+function route(){var h=location.hash.slice(1),p=h;if(h.indexOf("post-")===0)p="post";else if(PG.indexOf(h)<0)p="news";
+function apply(){PG.concat(["post"]).forEach(function(k){$("p-"+k).classList.toggle("on",k===p)});
+document.querySelectorAll("#nv a").forEach(function(a){a.classList.toggle("a",a.dataset.p===(p==="post"?"news":p))});$("dr").classList.remove("o");window.scrollTo({top:0,behavior:"instant"});if(p==="post")showPost(h.slice(5))}
+if(document.startViewTransition&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.startViewTransition(apply);else apply()}
+window.addEventListener("hashchange",route);
+$("bt").onclick=function(){$("dr").classList.add("o")};$("sh").onclick=function(){$("dr").classList.remove("o")};
+function loadF1(){api("/f1").then(function(d){ROUNDS=d.races||[];
+table("dt",["#","Пілот","Команда","Очки"],(d.drivers||[]).map(function(x){return[x.name,x.team,x.pts]}));
+table("ct",["#","Команда","Очки"],(d.constructors||[]).map(function(x){return[x.name,x.pts]}));sched();tick()}).catch(function(){})}
+function renderFeed(){var f=$("feed");if(!POSTS.length){f.innerHTML='<div class="note">Постів ще немає.</div>';return}
+f.innerHTML=POSTS.map(function(d){var x=d.text||"";return'<a class="post" href="#post-'+d.id+'">'+(d.img?'<img class="pi" loading="lazy" alt="" src="/api/img/'+d.img+'">':'<div class="pi"></div>')+'<div class="pb2"><h3>'+esc(d.title)+"</h3><p>"+esc(x.length>160?x.slice(0,160)+"…":x)+"</p><time>"+fmt.format(d.ts)+"</time></div></a>"}).join("")}
+function loadPosts(){return api("/posts").then(function(r){POSTS=r;renderFeed()}).catch(function(){$("feed").innerHTML='<div class="note">Не вдалося завантажити новини.</div>'})}
+function paras(t){return t.split(/\n\s*\n/).map(function(p){return"<p>"+esc(p)+"</p>"}).join("")}
+function loadComments(id){api("/posts/"+id+"/comments").then(function(cs){if(CUR!==id)return;var l=$("cl");
+l.innerHTML=cs.length?cs.map(function(c){return'<div class="cmt"><b>'+esc(c.name)+"</b> <time>"+fmt.format(c.ts)+"</time><p>"+esc(c.text)+"</p>"+(IS?'<button data-id="'+c.id+'">Видалити</button>':"")+"</div>"}).join(""):'<div class="note">Коментарів ще немає. Будь першим!</div>';
+if(IS)l.querySelectorAll("button").forEach(function(b){b.onclick=function(){api("/comments/"+b.dataset.id,{method:"DELETE"}).then(function(){loadComments(id)})}})}).catch(function(){})}
+function showPost(id){CUR=id;var a=$("art");$("cm").hidden=true;a.innerHTML='<div class="note">Завантаження…</div>';
+api("/posts/"+id).then(function(p){if(CUR!==id)return;
+a.innerHTML=(p.img?'<img class="hero" alt="" src="/api/img/'+p.img+'">':"")+"<h1>"+esc(p.title)+"</h1><time>"+fmt.format(p.ts)+"</time>"+paras(p.text)+(IS?'<button id="dl">Видалити пост</button>':"");
+if(IS)$("dl").onclick=function(){if(confirm("Видалити пост?"))api("/posts/"+id,{method:"DELETE"}).then(function(){loadPosts();location.hash="news"})};
+$("cm").hidden=false;loadComments(id)}).catch(function(){a.innerHTML='<div class="note">Пост не знайдено.</div>'})}
+$("cb").onclick=function(){var n=$("cnm").value.trim(),t=$("ct2").value.trim();if(!n||!t){$("cm2").textContent="Введи ім'я і текст";return}
+api("/posts/"+CUR+"/comments",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({name:n,text:t,website:$("hp").value})})
+.then(function(){$("ct2").value="";$("cm2").textContent="";loadComments(CUR)}).catch(function(r){$("cm2").textContent=r&&r.status===429?"Забагато коментарів, спробуй пізніше":"Не вдалося надіслати"})};
+function setAdmin(on){IS=on;$("na").style.display=on?"block":"none";$("lg").hidden=on;$("adm").hidden=!on}
+$("lb").onclick=function(){PW=$("pw").value;api("/login",{method:"POST"}).then(function(){try{localStorage.setItem("alpw",PW)}catch(e){}setAdmin(true)}).catch(function(){PW="";$("lm").textContent="Невірний пароль"})};
+if(PW)api("/login",{method:"POST"}).then(function(){setAdmin(true)}).catch(function(){PW="";setAdmin(false)});
+$("pb").onclick=async function(){var a=$("pt").value.trim(),b=$("px").value.trim(),fl=$("pf").files[0],img=null;
+if(!a||!b){$("pm").textContent="Потрібні заголовок і текст";return}
+$("pb").disabled=true;$("pm").textContent="Публікую…";
+try{if(fl){var u=await fetch("/api/upload",{method:"POST",headers:{"x-admin":PW,"content-type":fl.type},body:fl});if(!u.ok)throw 1;img=(await u.json()).key}
+var r=await api("/posts",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({title:a,text:b,img:img})});
+$("pt").value="";$("px").value="";$("pf").value="";$("pm").textContent="";await loadPosts();location.hash="post-"+r.id}
+catch(e){$("pm").textContent="Не вдалося опублікувати (фото до 10 МБ: jpg, png, webp, gif)"}
+$("pb").disabled=false};
+setInterval(tick,1000);setInterval(sched,30000);setInterval(loadF1,300000);
+loadF1();loadPosts();route();
+</script>
+</body>
+</html>
